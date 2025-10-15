@@ -8,23 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 
     <style>
-      html, body { margin:0; height:100%; overflow:hidden; background:#000; }
-
-      /* 容器铺满并居中 */
-      #unity-container {
-        position: fixed; inset: 0;
-        display: grid; place-items: center;
-        background:#000;
-      }
-
-      /* 画布保持 9:16，比谁都不超：既不超过视口高，也不超过视口宽 */
-      #unity-canvas {
-        aspect-ratio: 9 / 16;
-        height: min(100vh, calc(100vw * 16 / 9));
-        width:  min(calc(100vh * 9 / 16), 100vw);
-        display:block;
-      }
-
       /* 全屏时，容器充满屏幕并把内容居中 */
       #unity-container:fullscreen {
         display: grid !important;
@@ -45,7 +28,7 @@
     </style>
   </head>
   <body>
-    <div id="unity-container">
+    <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=540 height=960 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
