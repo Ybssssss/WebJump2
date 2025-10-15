@@ -131,8 +131,14 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => { unityInstance.SetFullscreen(1); 
-                };
+                const fsBtn = document.querySelector("#unity-fullscreen-button");
+                if (fsBtn) {
+                  fsBtn.onclick = () => {
+                    const root = document.getElementById('unity-container');
+                    if (root.requestFullscreen) root.requestFullscreen();
+                  };
+                }
+
 
               }).catch((message) => {
                 alert(message);
